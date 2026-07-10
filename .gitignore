@@ -1,0 +1,6 @@
+credentials/
+*.json
+__pycache__/
+playwright-report/
+debug.html
+responses.json
