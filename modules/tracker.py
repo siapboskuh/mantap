@@ -15,6 +15,49 @@ def get_batch(batch_size=50):
 
     format_requests = []
 
+    # Reset warna kolom A sampai baris 1000
+    format_requests.append({
+
+        "repeatCell": {
+
+            "range": {
+
+                "sheetId": sheet.id,
+
+                "startRowIndex": 1,
+
+                "endRowIndex": 1000,
+
+                "startColumnIndex": 0,
+
+                "endColumnIndex": 1
+
+            },
+
+            "cell": {
+
+                "userEnteredFormat": {
+
+                    "backgroundColor": {
+
+                        "red": 1,
+
+                        "green": 1,
+
+                        "blue": 1
+
+                    }
+
+                }
+
+            },
+
+            "fields": "userEnteredFormat.backgroundColor"
+
+        }
+
+    })
+
     for row_no, row in enumerate(
         data[1:],
         start=2
@@ -122,11 +165,11 @@ def get_batch(batch_size=50):
 
         })
 
-        print(
+    print(
 
-            f"{len(duplicate_updates)} resi duplikat ditemukan"
+        f"{len(duplicate_updates)} resi duplikat ditemukan"
 
-        )
+    )
 
     batches = []
 
